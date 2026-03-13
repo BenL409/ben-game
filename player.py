@@ -1,7 +1,7 @@
 import pygame
 
 from circleshape import CircleShape
-from constants import LINE_WIDTH, PLAYER_RADIUS, PLAYER_SHOOT_COOLDOWN_SECONDS, PLAYER_SHOOT_SPEED, PLAYER_SPEED, PLAYER_TURN_SPEED
+from constants import LINE_WIDTH, PLAYER_RADIUS, PLAYER_SHOOT_COOLDOWN_SECONDS, PLAYER_SHOOT_SPEED, PLAYER_SPEED, PLAYER_TURN_SPEED, SCREEN_HEIGHT, SCREEN_WIDTH
 from shot import Shot
 class Player(CircleShape):
     def __init__(self, x, y):
@@ -39,6 +39,7 @@ class Player(CircleShape):
     def update(self, dt):
         keys = pygame.key.get_pressed()
         self.shoot_cooldown -= dt
+        super().update(dt)
 
         if keys[pygame.K_a]:
             self.rotate(-dt)
